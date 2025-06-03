@@ -1,5 +1,4 @@
 <?php
-session_start();
 require_once 'auth_check.php';
 checkAuth(); // This will redirect to login if not authenticated
 require_once 'db_setup.php';

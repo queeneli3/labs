@@ -1,5 +1,8 @@
 <?php
-session_start();
+// Start session only if one is not already active
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
 require_once 'vendor/autoload.php';
 require_once 'db_setup.php'; // Make sure db_setup.php (or your config file) loads the .env
 

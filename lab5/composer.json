@@ -1,6 +1,6 @@
-json
 {
     "require": {
-        "google/apiclient": "^2.0"
+        "google/apiclient": "^2.0",
+        "vlucas/phpdotenv": "^5.0"
     }
 }

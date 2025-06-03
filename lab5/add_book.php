@@ -1,5 +1,4 @@
 <?php
-session_start();
 require_once 'auth_check.php';
 checkAuth();
 require_once 'db_setup.php';
