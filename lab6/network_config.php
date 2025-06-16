@@ -9,7 +9,7 @@ function getServerIP() {
         $output = shell_exec('hostname -I 2>/dev/null || ipconfig 2>/dev/null');
         if ($output) {
             $ips = explode(' ', trim($output));
-            foreach ($ips as $ip) {
+            foreach ($ips as $ip)   {
                 if (filter_var(trim($ip), FILTER_VALIDATE_IP, FILTER_FLAG_IPV4 | FILTER_FLAG_NO_PRIV_RANGE | FILTER_FLAG_NO_RES_RANGE)) {
                     return trim($ip);
                 }
@@ -31,6 +31,6 @@ function getNetworkInfo() {
         'server_ip' => getServerIP(),
         'server_port' => $_SERVER['SERVER_PORT'] ?? '80',
         'current_url' => 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'],
-        'access_url' => 'http://' . getServerIP() . ($_SERVER['SERVER_PORT'] != '80' ? ':' . $_SERVER['SERVER_PORT'] : '') . dirname($_SERVER);
-        ]
-    }
+        'access_url' => 'http://' . getServerIP() . ($_SERVER['SERVER_PORT'] != '80' ? ':' . $_SERVER['SERVER_PORT'] : '') . dirname($_SERVER['REQUEST_URI'])
+    ];
+}
